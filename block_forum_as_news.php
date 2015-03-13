@@ -53,7 +53,7 @@ class block_forum_as_news extends block_base {
         else {
             #AutoEnrolment
             // should they be allowed to see the forums?.
-            if(AccessAllowedByCategoryName(($this->user))) {
+            if(AccessAllowedByCategoryName(($this->user))) { 
 
                 $cohortID = FAN_CohortID;
                 require_once(FAN_cohort_lib_location); // WHAT!!!? WHY!!? PHP!!!!?
