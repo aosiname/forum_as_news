@@ -48,7 +48,7 @@ class block_forum_as_news extends block_base {
             $this->content->text = getNewsCollection();
             //$this->content->footer = '&copy; TMC IT Services 2014 - ' . date('Y');
             //$this->content->text .= "<p>EXISTING</p>" . FAN_ContextID . " " . $this->user->id;
-            return $this->content;
+            return $this->content; 
         }
         else {
             #AutoEnrolment
