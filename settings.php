@@ -23,7 +23,8 @@ AND	m.name = 'forum';
 
 // this is really annoying, it wants me to pull this in before I can use cohort_add_member and cohort_is_member functions
 // it does make sense but I thought the whole MOODLE API was available as the block is written in the official moodle way...
-define("FAN_cohort_lib_location", "C:\\inetpub\\wwwroot\\moodletest.tmc.local\\cohort\\lib.php");
+global $CFG;
+define("FAN_cohort_lib_location", $CFG->dirroot . "\\cohort\\lib.php");
 
 // these are forum news collection specific settings
 // the course that contains the forum

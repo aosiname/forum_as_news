@@ -15,7 +15,7 @@ class block_forum_as_news extends block_base {
 
         global $PAGE;
 		global $USER;
-        //global $CFG;
+        global $CFG;
 
         $this->page = $PAGE;
 		$this->user = $USER;
