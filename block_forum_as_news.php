@@ -52,7 +52,7 @@ class block_forum_as_news extends block_base {
         }
         else {
             #AutoEnrolment
-            // should they be allowed to see the forums?
+            // should they be allowed to see the forums?.
             if(AccessAllowedByCategoryName(($this->user))) {
 
                 $cohortID = FAN_CohortID;
