@@ -1,0 +1,64 @@
+.block_forum_as_news .footer {
+	text-align: center !important;
+	margin: 10px 0 0 0 !important;
+	font-size: 10px;
+ }
+
+.block_forum_as_news .forum-as-news {
+	margin-bottom: 10px;
+}
+
+.fan-title, .fan-posted {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.fan-posted {
+	font-style: italic;
+	font-size: 10px;
+	text-align: right;
+}
+
+.fan-controls {
+	margin-top: 20px;
+}
+
+.fan-controls a {
+	margin:0 2px;
+}
+
+.forum-as-news {
+	margin-left: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.fan-news {
+	margin-top: 15px !important;
+}
+
+.fan-item {
+	background: #F4F4F4 !important;
+	margin-bottom: 5px !important;
+}
+
+.fan-controls img {
+	padding: 7px;
+	cursor: pointer;
+}
+
+.fan-controls img:hover {
+	background: #EEE;
+}
+
+.fan-controls img {
+	width: 15px;
+}
+
+.fan-comments {
+	background: url("/blocks/forum_as_news/images/comments32.png") no-repeat center center;
+	padding-top:1px !important;
+}
+
+#FAN_Visible {
+	display: none;
+}
