@@ -25,7 +25,7 @@ Uses bootstrap so it would be good if you have a bootstrap theme. It will still 
 10) If like me you want to automate adding students to a course based on some feature (in my case, I found students from courses in a category that starts with HE
 10a) Then you will need to add a cohort and put the cohortid into settings.php
 10b) Otherwise, just add your students manually to the course that holds the forum for the news feed.
-10c) In this case, you can delete or comment out everything between #AutoEnrolment and #ENDAutoEnrolment in block_forum_as_news.php
+10c) In this case, you comment out this line autoEnrolOntoNewsCourse($this-user); in block_forum_as_news.php
 
 More Testing:
 > what happens if you delete the course?
@@ -37,3 +37,4 @@ Future ideas:
 > try adding another news collection type and merging the two arrays in block_forum_as_news.php->getNewsCollection()
 > provide feedback when system is paused or playing
 > different options to order by besides posted and title in settings.php
+> connect this to the database and create a setting that decides whether to auto-enrol or not.

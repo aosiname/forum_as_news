@@ -46,45 +46,49 @@ class block_forum_as_news extends block_base {
 
         if(get_user_roles_in_course($this->user->id, FAN_CourseID)) {
             $this->content->text = getNewsCollection();
-            //$this->content->footer = '&copy; TMC IT Services 2014 - ' . date('Y');
-            //$this->content->text .= "<p>EXISTING</p>" . FAN_ContextID . " " . $this->user->id;
             return $this->content; 
         }
         else {
-            #AutoEnrolment
-            // should they be allowed to see the forums?.
-            if(AccessAllowedByCategoryName(($this->user))) { 
-
-                $cohortID = FAN_CohortID;
-                require_once(FAN_cohort_lib_location); // WHAT!!!? WHY!!? PHP!!!!?
-                if(!cohort_is_member($cohortID, $this->user->id)) {
-                    cohort_add_member($cohortID, $this->user->id);
-                    $this->content->text = getNewsCollection();
-                    //$this->content->text .= "<p>ADDED</p>";
-                    return $this->content;
-                }
-                else {
-                    // if they are a cohort member, they would have had a role on the course.
-                    // so should never get here really...
-                    // well they actually end up here if the cohort is removed from the course but thats ok ...just return null to hide the block
-                    // also if they were on the cohort then you removed them from the cohort.
-                    return null;
-                    $this->content->text = "Access Not Allowed Via Cohort";
-                    return $this->content;
-                }
-            }
-            else {
-                return null;
-                // below is just for tests
-                //$this->content->text = "Access Not Allowed Via Category";
-                //return $this->content;
-            }
-            #ENDAutoEnrolment
+            // comment this out if you dont want to use auto enrolment
+            autoEnrolOntoNewsCourse($this);
         }
     }
 }
 
 // functions go here
+
+function autoEnrolOntoNewsCourse($user) {
+    #AutoEnrolment
+    // should they be allowed to see the forums?.
+    if(AccessAllowedByCategoryName(($user))) {
+
+        $cohortID = FAN_CohortID;
+        require_once(FAN_cohort_lib_location); // WHAT!!!? WHY!!? PHP!!!!?
+        if(!cohort_is_member($cohortID, $user->id)) {
+            cohort_add_member($cohortID, $user->id);
+            $this->content->text = getNewsCollection();
+            //$this->content->text .= "<p>ADDED</p>";
+            return $this->content;
+        }
+        else {
+            // if they are a cohort member, they would have had a role on the course.
+            // so should never get here really...
+            // well they actually end up here if the cohort is removed from the course but thats ok ...just return null to hide the block
+            // also if they were on the cohort then you removed them from the cohort.
+            return null;
+            $this->content->text = "Access Not Allowed Via Cohort";
+            return $this->content;
+        }
+    }
+    else {
+        return null;
+        // below is just for tests
+        //$this->content->text = "Access Not Allowed Via Category";
+        //return $this->content;
+    }
+    #ENDAutoEnrolment
+}
+
 /**
  * @return string HTML fomatted string to display as news feed
  * the idea is that $news gets a news collection as an array of HENEws Objects
