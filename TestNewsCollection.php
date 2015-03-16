@@ -6,10 +6,10 @@
  * Time: 11:01
  */
 
-require_once("NewsCollection.php");
+require_once("INewsCollection.php");
 require_once("HENews.php");
 
-class TestNewsCollection implements NewsCollection {
+class TestNewsCollection implements INewsCollection {
 
   public function __construct() {
 

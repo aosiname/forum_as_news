@@ -6,7 +6,7 @@
  * Time: 10:47
  */
 
-interface NewsCollection {
+interface INewsCollection {
   /**
    * @return array of HENews objects
    */

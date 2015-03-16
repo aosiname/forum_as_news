@@ -6,10 +6,10 @@
  * Time: 10:53
  */
 
-require_once("NewsCollection.php");
+require_once("INewsCollection.php");
 require_once("HENews.php");
 
-class MoodleForumNewsCollection implements NewsCollection {
+class MoodleForumNewsCollection implements INewsCollection {
 
   protected $forumID;
   protected $order;
